@@ -1,0 +1,65 @@
+.profile-image {
+  position: relative;
+  align-items: center;
+  background-color: $color-grey-lighter;
+  border-radius: 25px;
+  .left {
+    .image-container {
+      width: 145px;
+    }
+  }
+  .right {
+    flex-grow: 1;
+    h4 {
+      font-size: 16px;
+    }
+    span {
+      display: block;
+      border-bottom: 1px solid $color-grey-dark;
+      margin-bottom: 20px;
+    }
+    .button-container {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+  input[type="file"] {
+    display: none;
+  }
+  .change-overlay {
+    position: absolute;
+    bottom: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    transition: all 0.3s ease;
+  }
+  &:hover {
+    .change-overlay {
+      bottom: 3px;
+    }
+  }
+}
+
+.affix-card {
+  .links-container {
+    label {
+      width: 100%;
+      .input-group {
+        align-items: center;
+        .left {
+          flex-grow: 1;
+        }
+        .right {
+          margin-left: 10px;
+          .input-group {
+            align-items: center;
+          }
+        }
+      }
+    }
+  }
+}

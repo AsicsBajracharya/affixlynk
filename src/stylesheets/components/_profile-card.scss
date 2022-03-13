@@ -1,0 +1,154 @@
+.profile-card {
+  border: none;
+  .card-body {
+    padding: 0;
+  }
+  .profile-image {
+    .left {
+      .image-container {
+        margin-right: 20px;
+        img {
+          border-radius: 50%;
+        }
+      }
+    }
+    .right {
+      padding-top: 73px;
+    }
+  }
+  margin-bottom: 30px;
+  label {
+    padding: 25px;
+  }
+}
+.details-card {
+  background-image: linear-gradient(to right, #6fb439, #94c01f);
+  margin-bottom: 30px;
+  h2,
+  p {
+    color: $white;
+  }
+}
+
+.master-card {
+  background-image: linear-gradient(to right, #0652bc, #65abbf);
+  margin-bottom: 30px;
+  h2,
+  p {
+    color: $white;
+  }
+  .button-group {
+    justify-content: space-between;
+    .button-container {
+      button {
+        background-image: linear-gradient(
+          to right,
+          $color-grey-light,
+          $color-grey-lighter
+        );
+        color: black;
+      }
+    }
+  }
+}
+
+.status-card {
+  background-image: linear-gradient(to right, #ef5c2d, #dd7a95);
+  h2,
+  h1 {
+    color: $white;
+  }
+  .button-container {
+    button {
+      background-image: linear-gradient(
+        to right,
+        $color-grey-dark,
+        $color-grey-light
+      );
+      margin-right: 20px;
+      color: black;
+    }
+  }
+}
+.card-links {
+  background-image: linear-gradient(to right, #662481, #ab9ac4);
+  h1,
+  h4,
+  p {
+    color: $white;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    li {
+      &:not(:last-child) {
+        border-bottom: 1px solid $white;
+      }
+    }
+  }
+}
+
+.redirect-card {
+  border-radius: 25px;
+  overflow: hidden;
+  margin-bottom: 15px;
+  .card-header {
+    background-image: linear-gradient(to right, #36ada9, #41cfe3);
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      color: $white;
+    }
+  }
+  table {
+    tr {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+      padding: 15px;
+      &:hover {
+        background-color: darken($color-grey-lighter, 10%);
+        border-radius: 0;
+        td {
+          color: $paragraph_dark;
+        }
+      }
+      td {
+        text-align: left;
+        label {
+          .input-group {
+            display: flex;
+            align-items: center;
+          }
+        }
+      }
+    }
+  }
+  .content-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: $color-grey-lighter;
+  }
+  &:not(:last-child) {
+    margin-bottom: 1px solid $color-grey-dark;
+  }
+}
+
+.card-manage-biolink {
+  .content-container {
+    padding: 25px;
+    background-color: $color-grey-lighter;
+    input,
+    textarea {
+      background-color: transparent;
+    }
+    input[type="checkbox"] {
+      width: 18px;
+    }
+  }
+}

@@ -1,0 +1,75 @@
+.sidebar {
+  min-height: 100vh;
+  .logo-container {
+    padding: 20px 76px;
+    .image-container {
+      width: 144px;
+    }
+  }
+  .sidebar-menu-container {
+    height: 100%;
+    background-color: $color-grey-lighter;
+    .header-box {
+      padding: 20px 20px 5px;
+      h2 {
+        color: $color-grey-dark;
+        font-size: 20px;
+        font-weight: 300;
+        border-bottom: 1px solid $color-primary;
+      }
+    }
+    .sidebar-menu-list {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      .sidebar-menu-item {
+        padding: 20px;
+        display: flex;
+        transition: all 0.3s ease;
+        .icon-container {
+          width: 25px;
+          margin-right: 25px;
+          svg {
+            .cls-1 {
+              fill: $color-primary;
+            }
+          }
+        }
+        a {
+          color: $color-primary;
+          text-decoration: none;
+        }
+        &:hover {
+          background-color: $color-primary;
+          padding-left: 40px;
+          border-top-left-radius: 25px;
+          border-bottom-left-radius: 25px;
+          svg {
+            .cls-1 {
+              fill: $white;
+            }
+          }
+          a {
+            color: $white;
+          }
+        }
+      }
+
+      .sidebar-menu-item.active {
+        background-color: $color-primary;
+
+        padding-left: 40px;
+        border-top-left-radius: 25px;
+        border-bottom-left-radius: 25px;
+        svg {
+          .cls-1 {
+            fill: $white;
+          }
+        }
+        a {
+          color: $white;
+        }
+      }
+    }
+  }
+}

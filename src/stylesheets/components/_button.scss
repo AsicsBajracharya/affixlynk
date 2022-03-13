@@ -1,0 +1,31 @@
+.btn {
+  padding: 9px 20px;
+  font-size: 12px;
+  font-weight: 300;
+  border: None;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  &:focus {
+    box-shadow: none;
+    outline: none;
+  }
+  &:focus-visible {
+    box-shadow: none;
+    outline: none;
+  }
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 11px 20px rgba(0, 0, 0, 0.55);
+  }
+  &:active {
+    transform: translateY(1px);
+    box-shadow: 0px 9px 9px rgba(0, 0, 0, 0.7);
+  }
+}
+.btn-primary {
+  background-image: linear-gradient(to right, #36ada9, #41cfe3);
+}
+
+.btn-large {
+  width: 100%;
+}

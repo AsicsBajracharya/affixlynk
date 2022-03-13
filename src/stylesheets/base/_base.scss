@@ -1,0 +1,97 @@
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
+
+/**
+ * Set up a decent box model on the root element
+ */
+body {
+  box-sizing: border-box;
+}
+
+/**
+ * Make all elements from the DOM inherit from the parent box-sizing
+ * Since `*` has a specificity of 0, it does not override the `html` value
+ * making all elements inheriting from the root box-sizing value
+ * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+/**
+ * Basic styles for links
+ */
+// a {
+//   color: $brand-color;
+//   text-decoration: none;
+
+//   @include on-event {
+//     color: $text-color;
+//     text-decoration: underline;
+//   }
+// }
+body {
+  font-size: 13px;
+  font-family: "Century Gothic";
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+h3 {
+  color: white;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+input.form-control {
+  padding: 15px 20px;
+  border-bottom: 1px solid green;
+  position: relative !important;
+  &:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: purple;
+    left: 0;
+    bottom: 0;
+  }
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+input:-internal-autofill-selected {
+  background-color: -internal-light-dark(
+    rgb(255, 255, 255),
+    rgba(255, 255, 255, 1)
+  ) !important;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input[type="password"] {
+  background-color: white;
+}
+input[type="password"]:focus {
+  outline: 0;
+}

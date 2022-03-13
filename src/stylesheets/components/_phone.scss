@@ -1,0 +1,54 @@
+.phone-container {
+  position: relative;
+  .content-container {
+    position: absolute;
+    top: 97px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 350px;
+    height: 620px;
+    overflow-y: auto;
+    .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .image-container {
+        width: 115px;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+      .text-box {
+        text-align: center;
+        word-break: break-all;
+        h2 {
+          font-size: 20px;
+          text-transform: capitalize;
+        }
+      }
+    }
+    .social-media-container {
+      .social-media {
+        width: 80%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        background-color: lighten($color: #f0f0f0, $amount: 20%);
+        border-radius: 12px;
+        &:not(:last-child) {
+          margin-bottom: 15px;
+        }
+        .icon-container {
+          width: 25px;
+          margin-right: 20px;
+        }
+        .text-container {
+          margin: 0;
+          P {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}

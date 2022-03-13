@@ -1,0 +1,153 @@
+.before-login {
+  min-height: 100vh;
+  position: relative;
+  .main-body {
+    min-height: calc(100vh - 79px);
+    .container {
+      height: 100%;
+      .row {
+        height: 100%;
+      }
+    }
+  }
+  .header {
+    padding: 20px 0 0;
+    .container {
+      padding-bottom: 20px;
+      border-bottom: 1px solid $white;
+      .logo-container {
+        width: 162px;
+      }
+    }
+  }
+  .image-outer-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .card-container {
+    padding-top: 60px;
+  }
+  .card {
+    width: 425px;
+    max-width: 100%;
+    border-radius: 25px;
+    padding: 10px 30px;
+    position: absolute;
+    .card-header {
+      padding: 7px 0;
+      .image-container {
+        position: absolute;
+        width: 108px;
+        left: 0;
+        top: 0;
+      }
+      .header-box {
+        text-align: center;
+        h2 {
+          font-size: 30px;
+          font-weight: 700;
+          line-height: 1.86;
+          color: $color-primary;
+        }
+      }
+    }
+    .card-body {
+      .input-group {
+        position: relative;
+        .input-group-prepend {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          z-index: 10;
+          padding: 0 5px;
+        }
+        .input-group-append {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          right: 0;
+          z-index: 10;
+          padding: 0 5px;
+        }
+        .icon-container {
+          width: 12px;
+          svg {
+            cursor: pointer;
+            path {
+              fill: $color-grey-dark;
+            }
+          }
+        }
+        input {
+          padding-left: 23px;
+        }
+      }
+      a {
+        font-weight: 500;
+        color: darken($color-grey-dark, 40%);
+      }
+    }
+  }
+  .icon-box {
+    display: flex;
+    justify-content: space-around;
+    .image-container {
+      width: 33px;
+      cursor: pointer;
+    }
+  }
+}
+.signup-form {
+  background-image: linear-gradient(to right top, #ef5c2d, #dd7a95);
+}
+.login-form {
+  background-image: linear-gradient(to right top, #36ada9, #41cfe3);
+  .card {
+    .card-footer {
+      .text-small {
+        font-size: 12px;
+      }
+    }
+  }
+}
+.forgot-password-form {
+  background-image: linear-gradient(to right, #0652bc, #65abbf);
+}
+.liveValidateMessage {
+  top: -6px;
+  position: absolute;
+  z-index: 1;
+  padding-top: 6px;
+  padding-bottom: 16px;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+}
+
+.liveValidateMessage--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.liveValidateMessage-enter {
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+.liveValidateMessage-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: 0.33s opacity ease-in-out, 0.33s transform ease-in-out;
+}
+
+.liveValidateMessage-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.liveValidateMessage-exit-active {
+  opacity: 0;
+  transform: translateY(100%);
+  transition: 0.33s opacity ease-in-out, 0.33s transform ease-in-out;
+}

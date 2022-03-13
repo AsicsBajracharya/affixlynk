@@ -1,0 +1,211 @@
+.profile-image {
+  padding: 25px;
+}
+
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.manage-biolink {
+  .content-container {
+    .item {
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+      .input-group {
+        label {
+          width: 200px;
+        }
+        [type="checkbox"],
+        [type="radio"] {
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+}
+
+.card {
+  border-radius: 22px;
+
+  form {
+    label {
+      color: $black;
+      font-weight: 600;
+      font-size: 12px;
+      &:not(:last-child) {
+        margin-bottom: 7px;
+      }
+    }
+    input,
+    textarea {
+      border: none;
+      border-bottom: 1px solid $color-grey-dark;
+      padding: 3px 20px;
+      color: $color-grey-dark;
+      font-size: 12px;
+      &:focus {
+        box-shadow: none;
+      }
+    }
+    input[type="checkbox"] {
+      margin-right: 9px;
+      cursor: pointer;
+      padding: 20px;
+      width: 10px;
+    }
+  }
+  .card-header {
+    background-color: transparent;
+    border: none;
+  }
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    border-radius: 22px;
+    padding: 5px 25px;
+  }
+
+  .card-footer {
+    text-align: center;
+    padding-bottom: 5px;
+    background-color: transparent;
+    border: none;
+    p {
+      font-weight: 600;
+      color: $black;
+      margin-bottom: 0;
+    }
+    a {
+      font-size: 15px;
+      font-weight: 700;
+      color: $color-primary;
+    }
+  }
+  .error-msg {
+    margin-bottom: 0;
+  }
+}
+
+.form-control:focus,
+.form-control:active {
+  background: transparent;
+}
+
+table {
+  th {
+    padding: 16px 0;
+    color: $color-primary;
+  }
+  td {
+    font-weight: 600;
+    a {
+      color: $color-primary;
+    }
+  }
+  tr {
+    cursor: pointer;
+    border-radius: 25px;
+    &:hover {
+      background-color: $color-primary;
+      td {
+        color: $white;
+        a {
+          color: $white;
+        }
+      }
+    }
+    td {
+      &:first-child {
+        border-top-left-radius: 25px;
+        border-bottom-left-radius: 25px;
+      }
+      &:last-child {
+        border-top-right-radius: 25px;
+        border-bottom-right-radius: 25px;
+      }
+    }
+  }
+}
+
+.card-primary {
+  border-radius: 25px;
+  .card-header {
+    background-image: linear-gradient(to right, #36ada9, #41cfe3);
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      color: $white;
+    }
+  }
+}
+
+.loader-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  .loader-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.lds-ripple {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ripple div {
+  position: absolute;
+  border: 4px solid $color-primary;
+  opacity: 1;
+  border-radius: 50%;
+  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+.lds-ripple div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+@keyframes lds-ripple {
+  0% {
+    top: 36px;
+    left: 36px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 0px;
+    left: 0px;
+    width: 72px;
+    height: 72px;
+    opacity: 0;
+  }
+}
+
+.profile-image {
+  margin-bottom: 20px;
+  .left {
+    .image-container {
+      margin-right: 20px;
+      img {
+        border-radius: 50%;
+      }
+    }
+  }
+  .right {
+    padding-top: 73px;
+  }
+}

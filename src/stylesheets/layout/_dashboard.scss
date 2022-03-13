@@ -1,0 +1,82 @@
+.dashboard-outer-container {
+  display: flex;
+  .dashboard-inner-container {
+    flex-grow: 1;
+    padding: 0 20px;
+  }
+  .dashboard {
+    padding-top: 20px;
+  }
+  .dashboard-content-container {
+    position: relative;
+    min-height: calc(100vh - 187px);
+    .card {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      .card-body {
+        flex-direction: column;
+        label {
+          width: 100%;
+          &:not(:last-child) {
+            margin-bottom: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.links-container-biolink {
+  .item {
+    display: flex;
+    position: relative;
+    padding: 20px 25px;
+    background-color: $white;
+    border-radius: 12px;
+    &:first-child {
+      margin-top: 10px;
+    }
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+    .left {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 20%;
+      flex-grow: 0;
+      border-right: 1px solid $color-grey-dark;
+      .icon-container {
+        width: 20px;
+      }
+    }
+    .right {
+      padding: 10px 20px;
+      flex-grow: 1;
+      .text-box {
+        input {
+          width: 75%;
+          &:first-child {
+            margin-bottom: 15px;
+          }
+        }
+      }
+      .delete-icon-container {
+        position: absolute;
+        bottom: 20px;
+        right: 25px;
+        width: 20px;
+        cursor: pointer;
+      }
+      .edit-icon-container {
+        position: absolute;
+        top: 20px;
+        right: 25px;
+        width: 20px;
+        cursor: pointer;
+      }
+    }
+  }
+}
