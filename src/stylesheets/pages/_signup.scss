@@ -21,33 +21,37 @@
     }
   }
   .image-outer-container {
-    height: 100%;
+    height: calc(100vh - 79px);
     display: flex;
     justify-content: center;
     align-items: center;
   }
   .card-container {
-    padding-top: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 79px);
+    margin-right: -12px;
   }
   .card {
-    width: 425px;
+    width: 290px;
     max-width: 100%;
-    border-radius: 25px;
-    padding: 10px 30px;
+    border-radius: 14px;
+    padding: 10px 4px;
     position: absolute;
     .card-header {
       padding: 7px 0;
       .image-container {
         position: absolute;
-        width: 108px;
+        width: 80px;  
         left: 0;
         top: 0;
       }
       .header-box {
         text-align: center;
         h2 {
-          font-size: 30px;
-          font-weight: 700;
+          font-size: 26px;
+          font-weight: 500;
           line-height: 1.86;
           color: $color-primary;
         }
@@ -56,9 +60,13 @@
     .card-body {
       .input-group {
         position: relative;
+        &{
+          margin-bottom: 20px;
+        }
         .input-group-prepend {
           position: absolute;
-          top: 50%;
+          top: 40%;
+          left: 2%;
           transform: translateY(-50%);
           z-index: 10;
           padding: 0 5px;
@@ -72,7 +80,7 @@
           padding: 0 5px;
         }
         .icon-container {
-          width: 12px;
+          width: 10px;
           svg {
             cursor: pointer;
             path {
@@ -81,20 +89,27 @@
           }
         }
         input {
-          padding-left: 23px;
+          padding-left: 32px;
         }
       }
+      .text-box{
+        margin: 0px !important;
+      }
       a {
-        font-weight: 500;
+        font-weight: 600;
         color: darken($color-grey-dark, 40%);
+        color: #4a4a4a;
+        text-decoration: none;
       }
     }
   }
   .icon-box {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    column-gap: 14px;
+    margin: 20px 0px;
     .image-container {
-      width: 33px;
+      width: 36px;
       cursor: pointer;
     }
   }
@@ -106,8 +121,20 @@
   background-image: linear-gradient(to right top, #36ada9, #41cfe3);
   .card {
     .card-footer {
+      padding-top: 16px;
+      .text-box{
+        p{
+          color: #4a4a4a;
+        }
+        a{
+          color: #4a4a4a;
+        }
+      
+      }
       .text-small {
         font-size: 12px;
+        text-decoration: none;
+        color: black;
       }
     }
   }
