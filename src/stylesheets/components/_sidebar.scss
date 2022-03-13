@@ -1,7 +1,9 @@
 .sidebar {
   min-height: 100vh;
+  padding-left: 23px;
   .logo-container {
-    padding: 20px 76px;
+    padding: 32px 76px;
+  
     .image-container {
       width: 144px;
     }
@@ -9,6 +11,8 @@
   .sidebar-menu-container {
     height: 100%;
     background-color: $color-grey-lighter;
+    width: 296px;
+    max-width: 100%;
     .header-box {
       padding: 20px 20px 5px;
       h2 {
@@ -27,7 +31,7 @@
         display: flex;
         transition: all 0.3s ease;
         .icon-container {
-          width: 25px;
+          width: 17px;
           margin-right: 25px;
           svg {
             .cls-1 {
@@ -44,6 +48,8 @@
           padding-left: 40px;
           border-top-left-radius: 25px;
           border-bottom-left-radius: 25px;
+          width: calc(100% + 23px);
+          float: right;
           svg {
             .cls-1 {
               fill: $white;
@@ -61,6 +67,8 @@
         padding-left: 40px;
         border-top-left-radius: 25px;
         border-bottom-left-radius: 25px;
+            width: calc(100% + 23px);
+    float: right;
         svg {
           .cls-1 {
             fill: $white;
