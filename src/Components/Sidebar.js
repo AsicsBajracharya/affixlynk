@@ -164,21 +164,17 @@ function Sidebar() {
         <ul className="sidebar-menu-list">
           {state.menuItems.map((item, i) => {
             return (
-              <li
-                key={i}
-                className={`sidebar-menu-item ${
-                  appState.activeMenu == item.name ? "active" : ""
-                } `}
-              >
-                <div className="icon-container">{item.icon}</div>
-                <Link
-                  to={item.to}
-                  item-for={item.name}
-                  onClick={handleMenuClick}
+              <Link to={item.to} item-for={item.name} onClick={handleMenuClick}>
+                <li
+                  key={i}
+                  className={`sidebar-menu-item ${
+                    appState.activeMenu === item.name ? "active" : ""
+                  } `}
                 >
-                  {item.name}{" "}
-                </Link>
-              </li>
+                  <div className="icon-container">{item.icon}</div>
+                  <Link>{item.name} </Link>
+                </li>
+              </Link>
             )
           })}
         </ul>
