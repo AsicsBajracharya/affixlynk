@@ -48,6 +48,7 @@
       width: 20%;
       flex-grow: 0;
       border-right: 1px solid $color-grey-dark;
+      position: relative;
       .icon-container {
         width: 20px;
       }
@@ -57,6 +58,8 @@
         border: 1px solid;
         flex-wrap: wrap;
         padding: 20px;
+        position: absolute;
+        width: 225px;
         .image-container {
           width: 35px;
 
