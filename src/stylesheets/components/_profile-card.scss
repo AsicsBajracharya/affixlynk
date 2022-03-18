@@ -82,6 +82,20 @@
     padding: 0;
     list-style-type: none;
     li {
+      .content-container {
+        display: flex;
+        align-items: center;
+        padding: 20px 0 10px;
+        .image-container {
+          width: 76px;
+          margin-right: 20px;
+        }
+        .text-container {
+          p {
+            margin-bottom: 10px;
+          }
+        }
+      }
       &:not(:last-child) {
         border-bottom: 1px solid $white;
       }
@@ -149,6 +163,23 @@
     }
     input[type="checkbox"] {
       width: 18px;
+    }
+  }
+}
+
+.account-details-card {
+  background-image: linear-gradient(to right, #058cbf, #41cfe3);
+  margin-bottom: 30px;
+  .item {
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
+    p {
+      color: $white;
+      margin-bottom: 0;
+      &:last-child {
+        font-size: 30px;
+      }
     }
   }
 }

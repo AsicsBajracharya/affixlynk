@@ -95,3 +95,21 @@ input[type="password"] {
 input[type="password"]:focus {
   outline: 0;
 }
+
+table {
+  tr {
+    border: none;
+    td {
+      border: none;
+    }
+  }
+}
+
+.table > :not(caption) > * > * {
+  line-height: 0;
+  padding: 24px 12px;
+}
+
+input:-webkit-autofill {
+  background-color: transparent;
+}

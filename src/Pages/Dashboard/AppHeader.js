@@ -38,7 +38,7 @@ function AppHeader() {
                 <img src={searchIcon} alt="" />
               </div>
             </div>
-            <input type="text" className="form-control" />
+            <input type="text" className="form-control" placeholder="Search" />
           </div>
         </div>
       </div>
@@ -53,7 +53,7 @@ function AppHeader() {
           <ul className="menu-primary-list">
             <li
               className={`${
-                appState.activeMenu == "announcement" ? "active" : ""
+                appState.activeMenu === "announcement" ? "active" : ""
               }`}
             >
               <Link>

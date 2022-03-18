@@ -51,6 +51,20 @@
       .icon-container {
         width: 20px;
       }
+      .icons-box {
+        display: flex;
+        position: absolute;
+        border: 1px solid;
+        flex-wrap: wrap;
+        padding: 20px;
+        .image-container {
+          width: 35px;
+
+          img {
+            border-radius: 50%;
+          }
+        }
+      }
     }
     .right {
       padding: 10px 20px;
@@ -77,6 +91,27 @@
         width: 20px;
         cursor: pointer;
       }
+    }
+  }
+}
+
+.business-card-container {
+  background-color: $white;
+  margin: 20px 0;
+  padding: 20px;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    margin-bottom: 20px;
+  }
+  .input-group {
+    label {
+      width: 15%;
+    }
+    &:not(:last-child) {
+      margin-bottom: 20px;
     }
   }
 }

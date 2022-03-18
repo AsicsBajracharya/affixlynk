@@ -171,54 +171,55 @@ function Login() {
                     <div className="card-body">
                       <label>
                         <span>Email</span>
-                      </label>
-                      <div className="input-group">
-                        <div className="input-group-prepend">
-                          <div className="icon-container">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 11.04 12.74"
-                            >
-                              <defs>
-                                <style></style>
-                              </defs>
-                              <title>Asset 3</title>
-                              <g id="Layer_2" data-name="Layer 2">
-                                <g id="Layer_1-2" data-name="Layer 1">
-                                  <path
-                                    class="cls-1"
-                                    d="M9.24,3.83H8.87A3.08,3.08,0,1,1,5.79.75,3.09,3.09,0,0,1,8.87,3.83h.75A3.83,3.83,0,1,0,5.79,7.66,3.82,3.82,0,0,0,9.62,3.83Z"
-                                  />
-                                  <path
-                                    class="cls-1"
-                                    d="M.75,12.74A4.78,4.78,0,0,1,5.52,8a4.78,4.78,0,0,1,4.77,4.77H11a5.52,5.52,0,1,0-11,0Z"
-                                  />
+                        <div className="input-group">
+                          <div className="input-group-prepend">
+                            <div className="icon-container">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 11.04 12.74"
+                              >
+                                <defs>
+                                  <style></style>
+                                </defs>
+                                <title>Asset 3</title>
+                                <g id="Layer_2" data-name="Layer 2">
+                                  <g id="Layer_1-2" data-name="Layer 1">
+                                    <path
+                                      class="cls-1"
+                                      d="M9.24,3.83H8.87A3.08,3.08,0,1,1,5.79.75,3.09,3.09,0,0,1,8.87,3.83h.75A3.83,3.83,0,1,0,5.79,7.66,3.82,3.82,0,0,0,9.62,3.83Z"
+                                    />
+                                    <path
+                                      class="cls-1"
+                                      d="M.75,12.74A4.78,4.78,0,0,1,5.52,8a4.78,4.78,0,0,1,4.77,4.77H11a5.52,5.52,0,1,0-11,0Z"
+                                    />
+                                  </g>
                                 </g>
-                              </g>
-                            </svg>
+                              </svg>
+                            </div>
                           </div>
+                          <input
+                            type="email"
+                            className="form-control"
+                            onChange={(e) =>
+                              dispatch({
+                                type: "emailChange",
+                                value: e.target.value,
+                              })
+                            }
+                            value={state.email.value}
+                          />
                         </div>
-                        <input
-                          type="email"
-                          className="form-control"
-                          onChange={(e) =>
-                            dispatch({
-                              type: "emailChange",
-                              value: e.target.value,
-                            })
-                          }
-                          value={state.email.value}
-                        />
-                      </div>
 
-                      <CSSTransition
-                        in={state.email.hasErrors}
-                        timeout={330}
-                        classNames="liveValidateMessage"
-                        unmountOnExit
-                      >
-                        <p className="error-msg">{state.email.message}</p>
-                      </CSSTransition>
+                        <CSSTransition
+                          in={state.email.hasErrors}
+                          timeout={330}
+                          classNames="liveValidateMessage"
+                          unmountOnExit
+                        >
+                          <p className="error-msg">{state.email.message}</p>
+                        </CSSTransition>
+                      </label>
+
                       <label>
                         <span>Password</span>
                         <div className="input-group">

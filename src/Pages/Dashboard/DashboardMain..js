@@ -7,6 +7,7 @@ import avatar from "../../images/SVG/avatar.svg"
 import RedirectLink from "../../Components/RedirectLink"
 import MasterLink from "../../Components/MasterLink"
 import AccountStatus from "../../Components/AccountStatus"
+import ActiveLinks from "../../Components/ActiveLinks"
 const linksData = [
   {
     id: 1,
@@ -113,77 +114,7 @@ function DashboardMain() {
           <AccountStatus />
         </div>
         <div className="col-md-3">
-          <div className="card card-links">
-            <div className="card-header">
-              <div className="header-box">
-                <h1>ACTIVE LINKS 55</h1>
-              </div>
-              <div className="card-body">
-                <ul className="link-list">
-                  <li>
-                    <div className="content-container">
-                      <div className="image-container">
-                        <img src={avatar.svg} alt="" />
-                      </div>
-                      <div className="text-container">
-                        <h4>KHUMBU </h4>
-                        <p>2342342 members</p>
-                        <p>234234234234 views</p>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="content-container">
-                      <div className="image-container">
-                        <img src={avatar.svg} alt="" />
-                      </div>
-                      <div className="text-container">
-                        <h4>KHUMBU </h4>
-                        <p>2342342 members</p>
-                        <p>234234234234 views</p>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="content-container">
-                      <div className="image-container">
-                        <img src={avatar.svg} alt="" />
-                      </div>
-                      <div className="text-container">
-                        <h4>KHUMBU </h4>
-                        <p>2342342 members</p>
-                        <p>234234234234 views</p>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="content-container">
-                      <div className="image-container">
-                        <img src={avatar.svg} alt="" />
-                      </div>
-                      <div className="text-container">
-                        <h4>KHUMBU </h4>
-                        <p>2342342 members</p>
-                        <p>234234234234 views</p>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="content-container">
-                      <div className="image-container">
-                        <img src={avatar.svg} alt="" />
-                      </div>
-                      <div className="text-container">
-                        <h4>KHUMBU </h4>
-                        <p>2342342 members</p>
-                        <p>234234234234 views</p>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
+          <ActiveLinks />
         </div>
       </div>
     </div>

@@ -5,7 +5,9 @@ import StateContext from "../StateContext"
 import DispatchContext from "../DispatchContext"
 import { useContext } from "react"
 import { useState } from "react"
+import AccountDetails from "../Components/AccountDetails"
 import Loader from "../Components/Loader"
+import ActiveLinks from "../Components/ActiveLinks"
 function Page() {
   const appState = useContext(StateContext)
   const appDispatch = useContext(DispatchContext)
@@ -46,42 +48,56 @@ function Page() {
           Create page
         </Link>
       </div>
-      <table className="table">
-        <thead className="thead-dark">
-          <th scope="col">sn</th>
-          <th scope="col">name</th>
-          <th scope="col">type</th>
-          <th scope="col">active</th>
-          <th scope="col">created at</th>
-          <th scope="col">updated at</th>
-        </thead>
-        <tbody>
-          {pageList.data &&
-            pageList.data.map((item, i) => {
-              return (
-                <tr key={i}>
-                  <td>{i + 1}</td>
-                  <td>{item.name}</td>
-                  <td>{item.type}</td>
-                  <td>{item.active}</td>
-                  <td>{item.created_at}</td>
-                  <td>{item.updated_at}</td>
-                  <td>
-                    <Link to={`/admin/dashboard/page/edit/${item.id}`}>
-                      edit
-                    </Link>
-                  </td>
-                  <td>
-                    <Link to={`/admin/dashboard/page/manage/${item.id}`}>
-                      manage
-                    </Link>
-                  </td>
-                  <td>delete</td>
-                </tr>
-              )
-            })}
-        </tbody>
-      </table>
+      <div className="row">
+        <div className="col-md-9">
+          <table className="table">
+            <thead className="thead-dark">
+              <th scope="col">sn</th>
+              <th scope="col">name</th>
+              <th scope="col">type</th>
+              <th scope="col">active</th>
+              <th scope="col">created at</th>
+              <th scope="col">updated at</th>
+            </thead>
+            <tbody>
+              {pageList.data &&
+                pageList.data.map((item, i) => {
+                  return (
+                    <tr key={i}>
+                      <td>{i + 1}</td>
+                      <td>{item.name}</td>
+                      <td>{item.type}</td>
+                      <td>{item.active}</td>
+                      <td>{item.created_at}</td>
+                      <td>{item.updated_at}</td>
+                      <td>
+                        <Link to={`/admin/dashboard/page/manage/${item.id}`}>
+                          manage
+                        </Link>
+                      </td>
+                      <td>delete</td>
+                    </tr>
+                  )
+                })}
+            </tbody>
+          </table>
+        </div>
+        <div className="col-md-3">
+          <div className="card details-card">
+            <div className="card-body">
+              <h2 className=" card-number">0001 000017</h2>
+              <div className="text-box">
+                <p>Affix Card No: 28364920</p>
+              </div>
+              <div className="text-box">
+                <p>Card holder: Khumbu Pasanghamu RM</p>
+              </div>
+            </div>
+          </div>
+          <AccountDetails />
+          <ActiveLinks />
+        </div>
+      </div>
     </>
   )
 }

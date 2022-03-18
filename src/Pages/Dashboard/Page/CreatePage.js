@@ -7,6 +7,21 @@ import DispatchContext from "../../../DispatchContext"
 import { useContext } from "react"
 import { useImmerReducer } from "use-immer"
 import { CSSTransition } from "react-transition-group"
+import Select from "react-select"
+import { faLessThanEqual } from "@fortawesome/free-solid-svg-icons"
+
+const pageTypeOptions = [
+  { value: "", label: "Select page type" },
+  { value: "bio-link", label: "Bio Link" },
+  { value: "profile", label: "Profile" },
+  { value: "sub-page", label: "Sub Page" },
+]
+const pageStatusOptions = [
+  { value: "", label: "Set Status" },
+  { value: "yes", label: "Yes" },
+  { value: "no", label: "No" },
+]
+
 function CreatePage() {
   const appState = useContext(StateContext)
   const appDispatch = useContext(DispatchContext)
@@ -28,12 +43,25 @@ function CreatePage() {
       value: "",
       hasErrors: false,
       message: "",
+      // options: [
+      //   { value: "", label: "Select page type" },
+      //   { value: "biolink", label: "Bio Link" },
+      //   { value: "profile", label: "Profile" },
+      //   { value: "subpage", label: "Sub Page" },
+      // ],
+      options: [
+        { value: "chocolate", label: "Chocolate" },
+        { value: "strawberry", label: "Strawberry" },
+        { value: "vanilla", label: "Vanilla" },
+      ],
     },
     pageStatus: {
       value: "",
       hasErrors: false,
       message: "",
     },
+    isPending: false,
+    success: null,
     error: null,
     submitCount: 0,
   }
@@ -70,8 +98,21 @@ function CreatePage() {
       case "submitForm":
         draft.submitCount++
         return
+      case "pending":
+        draft.isPending = true
+        return
       case "setError":
+        draft.isPending = false
+        draft.succes = null
         draft.error = action.value
+        return
+      case "setSuccess":
+        draft.isPending = false
+        draft.error = null
+        draft.success = "Page created Successfully"
+        draft.user.value = ""
+        draft.pageType.value = ""
+        draft.pageStatus.value = ""
         return
 
       default:
@@ -111,12 +152,13 @@ function CreatePage() {
   useEffect(() => {
     // console.log("email", state.email.value, "password", state.password.value)
     if (state.submitCount) {
+      dispatch({ type: "pending" })
       const ourRequest = axios.CancelToken.source()
       const uid = appState.user.data.user_id
       const config = {
         headers: { Authorization: `Bearer ${token}` },
       }
-      async function login() {
+      async function createPage() {
         try {
           const response = await axios.post(
             `${process.env.REACT_APP_BASE_URL}/api/pages`,
@@ -132,15 +174,16 @@ function CreatePage() {
 
           console.log("response.data.login", response)
           if (response.data) {
+            dispatch({ type: "setSuccess" })
           }
         } catch (e) {
-          console.log(e.response.data, "there was an error")
-          if (e.response.data) {
-            dispatch({ type: "setError", value: e.response.data.message })
-          }
+          console.log(e, "there was an error")
+          // if (e.response.data) {
+          //   dispatch({ type: "setError", value: e.response.data.message })
+          // }
         }
       }
-      login()
+      createPage()
       return () => ourRequest.cancel()
     }
   }, [state.submitCount])
@@ -151,7 +194,9 @@ function CreatePage() {
   }
   return (
     <div className="dashboard-content-container">
-      <Link to="/dashboard/page">&larr; back</Link>
+      <Link className="btn-back" to="/admin/dashboard/page">
+        &larr; back
+      </Link>
       <div className="card card-primary">
         <div className="card-header">
           <h2>Create a new Page</h2>
@@ -159,7 +204,7 @@ function CreatePage() {
         <form onSubmit={handleSubmit}>
           <div className="card-body">
             {appState.userRoles &&
-              appState.userRoles.data.roles[0].name == "super_admin" && (
+              appState.userRoles.data.roles[0].name === "super_admin" && (
                 <select
                   name=""
                   id=""
@@ -185,27 +230,25 @@ function CreatePage() {
                 }
               />
             </label>
+
             <label>
               Type
-              <select
-                name=""
-                id=""
-                className="form-control"
-                required
-                onChange={(e) =>
-                  dispatch({ type: "pageTypeChange", value: e.target.value })
+              <Select
+                options={pageTypeOptions}
+                onChange={(option) =>
+                  dispatch({ type: "pageTypeChange", value: option.value })
                 }
-              >
-                <option value="">Select page Type</option>
-                <option value="bio-link">BioLink</option>
-                <option value="links">Links</option>
-                <option value="profile">Profile</option>
-                <option value="sub-page">Sub Page</option>
-              </select>
+              />
             </label>
             <label>
               Active
-              <select
+              <Select
+                options={pageStatusOptions}
+                onChange={(option) =>
+                  dispatch({ type: "pageStatusChange", value: option.value })
+                }
+              />
+              {/* <select
                 name=""
                 id=""
                 className="form-control"
@@ -217,13 +260,22 @@ function CreatePage() {
                 <option value="">Set status</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
-              </select>
+              </select> */}
             </label>
           </div>
           <div className="card-footer">
-            <button className="btn btn-primary">Create</button>
+            <button className="btn btn-primary" disabled={state.isPending}>
+              {" "}
+              {state.isPending ? "Loading" : "Create"}
+            </button>
           </div>
         </form>
+        {state.error && (
+          <p className="text-danger text-center">{state.error}</p>
+        )}
+        {state.success && (
+          <p className="text-sucess text-center">{state.success}</p>
+        )}
       </div>
     </div>
   )

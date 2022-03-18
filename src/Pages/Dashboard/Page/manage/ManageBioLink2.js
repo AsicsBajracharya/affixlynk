@@ -10,6 +10,8 @@ import Checkbox from "@mui/material/Checkbox"
 import AddIcon from "../../../../images/1x/addIcon.png"
 import EditIcon from "../../../../images/1x/editIcon.png"
 import DeleteIcon from "../../../../images/1x/deleteIcon.png"
+import Icons from "./Icons"
+
 function ManageBioLink() {
   const appState = useContext(StateContext)
   const { id } = useParams()
@@ -38,11 +40,44 @@ function ManageBioLink() {
       hasErrors: false,
       message: "",
     },
+    fullName: {
+      value: "",
+      hasErerors: true,
+      message: "",
+    },
+    contact: {
+      landline: "",
+      mobile: "",
+      hasErerors: true,
+      message: "",
+    },
+    firstName: {
+      value: "",
+      hasErerors: true,
+      message: "",
+    },
+    firstName: {
+      value: "",
+      hasErerors: true,
+      message: "",
+    },
+
+    firstName: {
+      value: "",
+      hasErerors: true,
+      message: "",
+    },
+    firstName: {
+      value: "",
+      hasErerors: true,
+      message: "",
+    },
     order: [],
     submitCount: 0,
     success: "",
     linkList: [],
     currentLinkId: 0,
+    pageData: null,
   }
 
   function ourReducer(draft, action) {
@@ -111,6 +146,11 @@ function ManageBioLink() {
         })
         draft.currentLinkId++
         return
+      case "setPageData":
+        console.log("setting page data")
+        draft.pageData = action.value
+        return
+
       default:
         return
     }
@@ -132,6 +172,33 @@ function ManageBioLink() {
       })
     }
   }
+  useEffect(() => {
+    console.log("BEFORE GETING ID")
+    if (id) {
+      console.log("AFTER GETTING ID")
+      const ourRequest = axios.CancelToken.source()
+      const token = appState.user.data.token
+      const config = {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+      async function fetchPageData() {
+        try {
+          const response = await axios.get(
+            `${process.env.REACT_APP_BASE_URL}/api/pages/${id}`,
+            config,
+            { cancelToken: ourRequest.token }
+          )
+          console.log("RESPONSE DATA", response.data)
+          if (response.data) {
+            dispatch({ type: "setPageData", value: response.data })
+          }
+        } catch (e) {
+          console.log(e, "there was an error")
+        }
+      }
+      fetchPageData()
+    }
+  }, [id])
   useEffect(() => {
     if (state.submitCount) {
       const ourRequest = axios.CancelToken.source()
@@ -295,12 +362,13 @@ function ManageBioLink() {
                       </div>
                       <div className="button-container">
                         <span
-                          className="btn btn-primary"
+                          className="btn btn-primary mr-3"
                           onClick={handleAddLink}
                         >
                           Add Link
                         </span>
                       </div>
+
                       <div className="links-container-biolink">
                         {state.linkList &&
                           state.linkList.map((item, i) => {
@@ -310,6 +378,12 @@ function ManageBioLink() {
                                   <div className="icon-container">
                                     <img src={AddIcon} alt="" />
                                   </div>
+                                  <Icons
+                                    icons={
+                                      state.pageData.data &&
+                                      state.pageData.data.page.icons
+                                    }
+                                  />
                                 </div>
                                 <div className="right">
                                   <div className="text-box">
@@ -365,6 +439,139 @@ function ManageBioLink() {
                             )
                           })}
                       </div>
+
+                      <div className="business-card-container">
+                        <h2>Add to contacts</h2>
+                        <div className="input-group">
+                          <label>Full Name: </label>
+                          <input
+                            type="text"
+                            placeholder="Type your full name"
+                            className="form-control"
+                            onChange={(e) =>
+                              dispatch({
+                                type: "nameChange",
+                                value: e.target.value,
+                              })
+                            }
+                            value={state.name.value}
+                          />
+                        </div>
+                        <div className="input-group">
+                          <label>Landline: </label>
+
+                          <input
+                            type="text"
+                            placeholder="Type your Landline number"
+                            className="form-control"
+                            onChange={(e) =>
+                              dispatch({
+                                type: "landlineChange",
+                                value: e.target.value,
+                              })
+                            }
+                          />
+                        </div>
+                        <div className="input-group">
+                          <label>Mobile: </label>
+                          <input
+                            type="text"
+                            placeholder="Type your mobile number"
+                            className="form-control"
+                            onChange={(e) =>
+                              dispatch({
+                                type: "landlineChange",
+                                value: e.target.value,
+                              })
+                            }
+                          />
+                        </div>
+                        <div className="input-group">
+                          <label>Email: </label>
+                          <input
+                            type="text"
+                            placeholder="Type your first name"
+                            className="form-control"
+                            onChange={(e) =>
+                              dispatch({
+                                type: "emailChange",
+                                value: e.target.value,
+                              })
+                            }
+                          />
+                        </div>
+                        <div className="input-group">
+                          <label>Address: </label>
+                          <input
+                            type="text"
+                            placeholder="Type your first name"
+                            className="form-control"
+                            onChange={(e) =>
+                              dispatch({
+                                type: "addressChange",
+                                value: e.target.value,
+                              })
+                            }
+                          />
+                        </div>
+                        <div className="input-group">
+                          <label>Company: </label>
+                          <input
+                            type="text"
+                            placeholder="Type your first name"
+                            className="form-control"
+                            onChange={(e) =>
+                              dispatch({
+                                type: "companyChange",
+                                value: e.target.value,
+                              })
+                            }
+                          />
+                        </div>
+                        <div className="input-group">
+                          <label>Designation: </label>
+                          <input
+                            type="text"
+                            placeholder="Type your first name"
+                            className="form-control"
+                            onChange={(e) =>
+                              dispatch({
+                                type: "designationChange",
+                                value: e.target.value,
+                              })
+                            }
+                          />
+                        </div>
+                        <div className="input-group">
+                          <label>website: </label>
+                          <input
+                            type="text"
+                            placeholder="Type your first name"
+                            className="form-control"
+                            onChange={(e) =>
+                              dispatch({
+                                type: "websiteChange",
+                                value: e.target.value,
+                              })
+                            }
+                          />
+                        </div>
+                        <div className="input-group">
+                          <label>company Address: </label>
+                          <input
+                            type="text"
+                            placeholder="Type your first name"
+                            className="form-control"
+                            onChange={(e) =>
+                              dispatch({
+                                type: "companyAddressChange",
+                                value: e.target.value,
+                              })
+                            }
+                          />
+                        </div>
+                      </div>
+
                       <div className="button-container my-3">
                         <button className=" btn btn-primary">Submit</button>
                       </div>
